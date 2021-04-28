@@ -1,7 +1,7 @@
 const discord = require('discord.js');
 const MAX_MESSAGE_LENGTH = 40;
 
-module.exports.send = (id, token, repo, branch, url, commits, size, report) => new Promise((resolve, reject) => {
+module.exports.send = (id, token, repo, branch, url, commits, size) => new Promise((resolve, reject) => {
     var client;
     console.log("Preparing Webhook...");
     try {
@@ -12,13 +12,13 @@ module.exports.send = (id, token, repo, branch, url, commits, size, report) => n
         return;
     }
 
-    client.send(createEmbed(repo, branch, url, commits, size, report)).then(() => {
+    client.send(createEmbed(repo, branch, url, commits, size)).then(() => {
         console.log("Successfully sent the message!");
         resolve();
     }, reject);
 });
 
-function createEmbed(repo, branch, url, commits, size, report) {
+function createEmbed(repo, branch, url, commits, size) {
     console.log("Constructing Embed...");
     var latest = commits[0];
 

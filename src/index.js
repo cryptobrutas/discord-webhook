@@ -23,8 +23,7 @@ async function run() {
     const id = core.getInput("id");
     const token = core.getInput("token");
 
-	
-    webhook.send(id, token, repository, branch, payload.compare, commits, size, report).catch(err => core.setFailed(err.message));
+    webhook.send(id, token, repository, branch, payload.compare, commits, size).catch(err => core.setFailed(err.message));
 }
 
 try {
