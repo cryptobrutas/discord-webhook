@@ -24,7 +24,7 @@ function createEmbed(repo, branch, url, commits, size, report) {
 
     var embed = new discord.RichEmbed()
                 .setColor(0x00BB22)
-                .setTitle(`*cryptobrutas* - \`${commits[0].author.username}\` pushed ${size} ${(size > 1) ? "commits" : "commit"} to ${repo}`)
+                .setTitle(`*cryptobrutas* - \`${commits[0].author.username}\` pushed ${size} ${(size > 1) ? "commits" : "commit"} to \`${repo}\``)
                 .setDescription(getChangeLog(commits, size))
 
     return embed;
